@@ -1,0 +1,104 @@
+@import bootstrap-3.3.7-dist/stylesheets/bootstrap.scss
+@import helpers/box.sass
+
+body
+    background: #dde3e8
+    margin: 0
+    min-height: 100vh
+    position: relative
+
+hr
+    border-bottom: solid #ccc .5px
+
+.row
+    height: 100%
+
+.pb-50
+    padding-bottom: 50px
+
+.font-bold
+    font-weight: bold
+
+.drop-shadow
+    -webkit-box-shadow: 0 0 15px -5px rgba(0, 0, 0, .5)
+    box-shadow: 0 0 15px -5px rgba(0, 0, 0, .5)
+
+.mx-auto
+    margin: 0 auto
+
+.col1
+    border-right: solid .5px black
+
+.title
+    @extend .font-bold,.text-center
+    font-size: 2em
+
+.title-sub
+    @extend .font-bold, .text-primary
+    font-size: 1.125em
+
+.intro-wrap
+    @extend .bg-info,.p-5
+    max-width: 680px
+    border-radius:0 5px 5px 0
+    transition: all ease .3s
+    &:hover
+        @extend .drop-shadow
+
+.intro-wrap p
+    font-size: 18px
+
+.intro-wrap legend
+    @extend .px-2,.mb-1
+    border: solid .5px #cccccc
+    width: auto
+
+.intro-wrap fieldset
+    border: solid .5px #cccccc
+
+.skill-wrap
+    @extend .px-5,.py-5
+
+.skill-lists
+    display: flex
+    flex-wrap: wrap
+
+.skill-lists > div
+    @extend .my-3
+    width: 25%
+    min-width: 180px
+
+.experience
+    @extend .pl-1
+
+.experience > div
+    @extend .pl-4, .pb-5
+    position: relative
+    border-left: solid 1px #007bff
+
+.experience > div:before
+    content: ''
+    width:10px
+    height: 10px
+    background: #007bff
+    position: absolute
+    border-radius: 100%
+    left: 0
+    top: 0
+    transform: translate(-50%,0)
+
+.experience-title
+    @extend .title-sub
+
+.experience-desc
+    @extend .p-2
+    max-width: 280px
+    border: solid #ccc 1px
+
+.footer
+    @extend .py-3,.text-center,.mt-3
+    position: absolute
+    bottom: 0px
+    background: #b4e7ff5c
+    width: 100%
+    
