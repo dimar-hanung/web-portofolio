@@ -1,0 +1,72 @@
+@import bootstrap-3.3.7-dist/stylesheets/bootstrap.scss
+@import helpers/box.sass
+
+body,html
+    background: #dde3e8
+    background-image: radial-gradient(88.2% 97.3% at -17% 22.9%, rgb(236 142 70) 100%, #dc3435 100%)
+    margin: 0
+    min-height: 100vh
+    position: relative
+
+hr
+    border: none
+    border-bottom: solid #63331c .5px
+
+img
+    height: 100%
+
+.col-md-6
+    height: 100%
+
+.d-block
+    display: block
+
+$border-brown:#dc3435
+$text-lg:28px
+$text-md:18px
+$medium:992px
+
+
+
+.pb-50
+    padding-bottom: 50px
+
+.navbar a
+    @extend .font-bold
+    color: #000
+
+.font-bold
+    font-weight: bold
+
+.drop-shadow
+    -webkit-box-shadow: 0 0 15px -5px rgba(0, 0, 0, .5)
+    box-shadow: 0 0 15px -5px rgba(0, 0, 0, .5)
+
+.mx-auto
+    margin: 0 auto
+
+.quote-box
+    max-width: 520px
+    .quote-title
+        font-size: $text-lg
+    .quote-name
+        font-size: $text-md
+
+.quote-desc
+    &::after,
+    &::before
+        content: '"'
+    @extend .text-center
+    font-style: italic
+    font-size: $text-lg
+
+.footer
+    @extend .py-3,.text-center,.mt-3
+    position: absolute
+    bottom: 0px
+    background: #b4e7ff5c
+    width: 100%
+
+@media screen and (min-width: $medium)
+    img.mx-auto
+        margin: 0 !important
