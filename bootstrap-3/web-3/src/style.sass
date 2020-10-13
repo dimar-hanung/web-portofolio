@@ -8,6 +8,8 @@ body,html
     min-height: 100vh
     position: relative
 
+
+
 hr
     border: none
     border-bottom: solid #63331c .5px
@@ -25,6 +27,7 @@ $border-brown:#dc3435
 $text-lg:28px
 $text-md:18px
 $medium:992px
+$small:768px
 
 
 
@@ -33,6 +36,8 @@ $medium:992px
 
 .navbar a
     @extend .font-bold
+    &:hover,&:focus
+        color: #000
     color: #000
 
 .font-bold
@@ -70,3 +75,7 @@ $medium:992px
 @media screen and (min-width: $medium)
     img.mx-auto
         margin: 0 !important
+
+@media screen and (min-width: $small)
+    .navbar .text-white
+        color: #fff
