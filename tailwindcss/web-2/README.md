@@ -14,5 +14,5 @@ Terima kasih 😄
 
 ## Change Log
 - Version 0.9\
-    2020-10-12 23:46:21\
+    2020-10-13 14:44:50
     Initial Commit
