@@ -1,11 +1,11 @@
 # Web 1 - Classic Naruto Quote ❤️
 
-## SASS Build 🏗️
+## SASS Build 🔧
 ```bash
 sass --watch src/style.sass public/css/build.css --style compressed
 ```
 
-## Technology 🧑‍💻
+## Technology 👨‍💻
 - [x] Bootstrap 3.3.7
 - [x] Jquery
 - [x] SASS
