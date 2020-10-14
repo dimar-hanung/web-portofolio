@@ -1,0 +1,126 @@
+@import bootstrap-3.3.7-dist/stylesheets/bootstrap.scss
+@import helpers/box.sass
+
+body,html
+    background: #dde3e8
+    background-image: radial-gradient(88.2% 97.3% at -17% 22.9%, #ffffff 100%, #90b7bd 100%)
+    background-attachment: fixed
+    margin: 0
+    min-height: 100vh
+    position: relative
+
+img
+    height: 100%
+
+.col-md-6
+    height: 100%
+
+.d-block
+    display: block
+
+.pb-50
+    padding-bottom: 50px
+
+.bg-light
+    background: #fff
+
+.navbar 
+    z-index: 99
+    a
+        @extend .font-bold
+        color: #007bff
+        &:hover,&:focus
+            color: #000
+            color: #000
+
+.font-bold
+    font-weight: bold
+
+.drop-shadow
+    -webkit-box-shadow: 0 0 25px -5px #000
+    box-shadow: 0 0 25px 0px #000
+
+.title
+    @extend .font-bold
+    font-size: 42px
+
+.angry
+    &::after
+        content: '😄'
+    &:hover
+        cursor: pointer
+        &::after
+            content: '😠'
+    &:focus
+        cursor: pointer
+        &::after
+            content: '😧'
+    
+
+$parallax-height:100vh
+$center-margin: 0px auto
+
+@mixin background-size($size)
+    background-size: $size
+    -webkit-background-size: $size
+    -mox-background-size: $size
+    -o-background-size: $size
+
+@mixin parallax-background($file)
+    background: url($file) no-repeat center center fixed
+    background-position: center
+    @include background-size(cover)
+
+.ctn
+    position: relative
+    height: 100vh
+    display: grid
+    align-items: center
+    justify-items: center
+    h1
+        @extend .m-0
+        z-index: 2
+        position: relative
+        color:#fff
+
+.parralax-fix
+    position: absolute
+    filter: brightness(0.3)
+    width: 100%
+    height: 100vh
+    perspective: 1px
+    transform: translateZ(-1px)
+    overflow-x: hidden
+    overflow-y: auto
+    h1
+        text-transform: uppercase
+        font-family: 'Bitter', serif
+        letter-spacing: 0.06em
+        font-size: 120px
+        color: #FFF
+        opacity: 0.7
+        text-align: center
+        transform: translateZ(-2px)
+    @extend .drop-shadow
+
+#par-1
+    @include parallax-background("../images/anime-1.jpg" )
+
+#par-2
+    @include parallax-background("../images/anime-3.jpg")
+
+p
+    width: 70%
+    padding: 5%
+    margin: 0px auto
+    text-align: center
+    font-size: 20px
+    font-weight: 200
+    line-height: 1.4
+
+.footer
+    @extend .py-3,.text-center,.mt-3
+    position: absolute
+    bottom: 0px
+    background: #ccc
+    width: 100%
