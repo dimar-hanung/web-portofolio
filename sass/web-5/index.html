@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="public/css/build.css" />
+    <script src="public/js/jquery-1.12.2.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="box__title text-center">Sum Speed ⚡</div>
+        <div class="box__header">
+          <div id="barCountDown" class="bar">
+            <div class="bar__fill"></div>
+          </div>
+          <hr />
+        </div>
+        <div class="box__main m-2">
+          <div class="btn btn-success" onclick="sum.init(3);">Mudah</div>
+          <div class="btn btn-danger" onclick="sum.init(2);">Susah</div>
+          <div class="btn btn-dark" onclick="sum.init(0.5);">Ampun...</div>
+          <div id="startCount" class="btn btn-primary">Mulai</div>
+          <div>
+            Total Jawab:
+            <span id="totalJawab"></span>
+          </div>
+          <div>
+            Salah:
+            <span id="salahJawab"></span>
+          </div>
+          <div>
+            Score:
+            <span id="nilaiJawab"></span>
+          </div>
+          <div class="flex question">
+            <div id="numA"></div>
+            +
+            <div id="numB"></div>
+          </div>
+          <div class="input">
+            <input type="number" id="inputNumber" disabled />
+          </div>
+          <div id="printResult"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      class SumSpeed {
+        constructor(level, count) {
+          this.level = level;
+          this.width = 100;
+          this.speed = 5;
+          this.timer = setTimeout(() => true, 200);
+          this.result = [];
+          this.totalAmswer = 0;
+          this.totalWrong = 0;
+          this.totalCorrect = 0;
+          this.a = Math.floor(Math.random() * 10);
+          this.b = Math.floor(Math.random() * 10);
+          numA.innerHTML = this.a;
+          numB.innerHTML = this.b;
+        }
+        countdown(count) {
+          let gap = 100 / count / 10;
+          const bar = $("#barCountDown .bar__fill");
+          this.width = 100;
+          bar.width("100%");
+          clearTimeout(this.timer);
+          this.counting(count, gap);
+        }
+        counting(count, gap) {
+          this.timer = setTimeout(
+            function () {
+              const bar = $("#barCountDown .bar__fill");
+              bar.width(`${this.width}%`);
+              this.width -= gap;
+              if (count > 0) {
+                this.counting(count - 0.1, gap);
+              } else {
+                console.log(this.result);
+                inputNumber.disabled = true;
+                printResult.innerHTML = "";
+                this.result.forEach((data) => {
+                  this.totalAmswer++;
+                  if(data.status == false) this.totalWrong++
+                  else this.totalCorrect++
+                  printResult.innerHTML += /*html*/ `
+                  <div class="${data.status ? "box-green" : "box-red"}">${
+                    data.a
+                  } + ${data.b} = ${data.answer}, ${
+                    data.status ? "bener" : "salah"
+                  }</div>
+                 
+                  `;
+                });
+                salahJawab.innerHTML = this.totalWrong
+                totalJawab.innerHTML = this.totalAmswer
+                console.log(this.totalAmswer,this.totalWrong)
+                nilaiJawab.innerHTML = ((this.totalCorrect / this.totalAmswer) * 100).toFixed(2)
+                
+                 this.result = [];
+              }
+            }.bind(this),
+            100
+          );
+        }
+        init(speed) {
+          this.speed = speed;
+        }
+        start() {
+          inputNumber.disabled = false;
+          inputNumber.focus();
+          this.countdown(this.speed);
+        }
+        checkSum(val) {
+          const sum = this.a + this.b;
+          const lastSum =
+            sum >= 10 ? parseInt(sum.toString().split("")[1]) : sum;
+          this.result.push({
+            a: this.a,
+            b: this.b,
+            answer: val,
+            status: val == lastSum ? true : false,
+          });
+
+          this.countdown(this.speed);
+          this.a = Math.floor(Math.random() * 10);
+          this.b = Math.floor(Math.random() * 10);
+          numA.innerHTML = this.a;
+          numB.innerHTML = this.b;
+
+          inputNumber.value = null;
+        }
+      }
+      const sum = new SumSpeed("hard");
+      $("#startCount").click(function (e) {
+        sum.start();
+      });
+      $("#inputNumber").on("input", function (e) {
+        sum.checkSum(e.target.valueAsNumber);
+      });
+    </script>
+  </body>
+</html>

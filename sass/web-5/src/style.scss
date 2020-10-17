@@ -1,0 +1,83 @@
+@import "helpers/box.sass";
+@import "helpers/button.sass";
+html,body {
+  margin: 0;
+  background: #f6f5f5;
+  height: 100%;
+  width:100%;
+  font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    max-width: 720px;
+    margin: 50px auto 0 auto;
+}
+
+.text-center{
+    text-align: center;
+}
+.flex{
+  display:flex;
+  
+}
+
+.bar{
+    height: 25px;
+    width: auto;
+    // margin: 0 1px;
+    border:solid #dc3435 .5px;
+    border-left: none;
+    border-right: none;
+    position: relative;
+    .bar__fill{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: lighten(#dc3435, 40%);
+        transition:all linear 0.1s;
+    }
+}
+
+
+
+
+.box {
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+    0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11),
+    0 8px 16px rgba(0, 0, 0, 0.11);
+  border-radius: 3px;
+  width: 100%;
+  max-width: 720px;
+  min-height: 700px;
+  &__title{
+    @extend .text-center,.p-2;
+    border-bottom: solid #ccc 0.5px;
+    font-weight: bold;
+    font-size: large;
+  }
+}
+
+
+.box-red,.box-green{
+  @extend .p-2;
+  color:#fff;
+  background-color: #dc3435;
+}
+.box-green{
+  background-color: #28a745;
+}
+
+.input{
+  input{
+    padding:10px;
+    max-width: 80px;
+  }
+}
+.question{
+  font-size: 28px;
+}

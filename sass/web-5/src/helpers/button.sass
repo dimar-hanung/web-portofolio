@@ -1,0 +1,37 @@
+
+// $primary : #007bff
+// $danger : #dc3435
+// SCSS SYNTAX
+$buttons: ("primary": #007bff, "danger": #dc3435, "success": #28a745,"dark":#343a40)
+.btn
+    @extend .py-2,.px-3
+    display: inline-block
+    border: none
+    text-decoration: none
+    font-size: 13px
+    text-transform: uppercase
+    font-weight: 600
+    border-radius: 2px
+    text-align: center
+    position: relative
+    outline: none
+    transition: background-color .1s ease
+    cursor: pointer
+    &:focus, &:hover
+        text-decoration: none
+        &:hover
+            &::after
+                opacity: .22
+        &:active
+            &::after
+                opacity: .90
+
+    @each $class, $color in $buttons 
+        &.btn-#{$class}
+            background-color: $color
+            color: #fff
+            &:hover
+                background-color: lighten($color, 5%)
+            &:active
+                background-color: darken($color, 5%)
+
