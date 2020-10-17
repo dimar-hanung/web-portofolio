@@ -100,7 +100,10 @@
                 totalJawab.innerHTML = this.totalAmswer
                 console.log(this.totalAmswer,this.totalWrong)
                 nilaiJawab.innerHTML = ((this.totalCorrect / this.totalAmswer) * 100).toFixed(2)
-                
+
+                this.totalCorrect = 0;
+                this.totalWrong = 0;
+                this.totalAmswer = 0;
                  this.result = [];
               }
             }.bind(this),
